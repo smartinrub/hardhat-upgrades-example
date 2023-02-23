@@ -26,7 +26,14 @@ const deployFunction: DeployFunction = async ({
         args: [],
         log: true,
         waitConfirmations: waitBlockConfirmations,
-        proxy: {},
+        proxy: {
+            proxyContract: "OpenZeppelinTransparentProxy",
+            // the proxy contract is owned by an admin contract (best practice)
+            viaAdminContract: {
+                name: "MyContractProxyAdmin",
+                artifact: "MyContractAdmin",
+            },
+        },
     })
 
     if (
