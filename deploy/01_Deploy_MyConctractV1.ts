@@ -31,7 +31,7 @@ const deployFunction: DeployFunction = async ({
             // the proxy contract is owned by an admin contract (best practice)
             viaAdminContract: {
                 name: "MyContractProxyAdmin",
-                artifact: "MyContractAdmin",
+                artifact: "MyContractProxyAdmin",
             },
         },
     })
