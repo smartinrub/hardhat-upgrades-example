@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-contract MyContractV1 {
+contract MyContract {
     uint256 internal value;
 
     event ValueChanged(uint256 newValue);

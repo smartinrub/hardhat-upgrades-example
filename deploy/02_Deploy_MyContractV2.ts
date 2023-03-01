@@ -21,19 +21,11 @@ const deployFunction: DeployFunction = async ({
     )
         ? 1
         : VERIFICATION_BLOCK_CONFIRMATIONS
-    const myContractV1 = await deploy("MyContractV1", {
+    const myContractV2 = await deploy("MyContractV2", {
         from: deployer,
         args: [],
         log: true,
         waitConfirmations: waitBlockConfirmations,
-        proxy: {
-            proxyContract: "OpenZeppelinTransparentProxy",
-            // the proxy contract is owned by an admin contract (best practice)
-            viaAdminContract: {
-                name: "MyContractProxyAdmin",
-                artifact: "MyContractProxyAdmin",
-            },
-        },
     })
 
     if (
@@ -41,10 +33,10 @@ const deployFunction: DeployFunction = async ({
         process.env.ETHERSCAN_API_KEY
     ) {
         log("Verifying...")
-        await verify(myContractV1.address, [])
+        await verify(myContractV2.address, [])
     }
     log(`----------------------------------------------------`)
 }
 
 export default deployFunction
-deployFunction.tags = ["all", "my-contract-v1", "main"]
+deployFunction.tags = ["all", "my-contract-v2", "main"]
