@@ -42,4 +42,4 @@ const deployFunction: DeployFunction = async ({
 }
 
 export default deployFunction
-deployFunction.tags = ["all", "my-contract-v1", "main"]
+deployFunction.tags = ["all", "my-contract", "main"]
